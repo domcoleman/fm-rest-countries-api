@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --port=3000",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/composition-api": "^0.5.0",
     "core-js": "^3.6.5",
+    "fela": "^11.3.0",
+    "fela-dom": "^11.3.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
