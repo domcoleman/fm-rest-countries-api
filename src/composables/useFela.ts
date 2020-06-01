@@ -4,6 +4,7 @@ import {
   computed,
   onBeforeUnmount,
   reactive,
+  onMounted,
 } from '@vue/composition-api'
 import { createRenderer } from 'fela'
 import { rehydrate, render } from 'fela-dom'
@@ -22,10 +23,12 @@ export const provideFela = ({ theme, config }: FelaProviderProps) => {
 
   provide(FelaSymbol, fela)
 
-  rehydrate(renderer)
-  render(renderer)
-
   onBeforeUnmount(() => renderer.clear())
+
+  onMounted(() => {
+    rehydrate(renderer)
+    render(renderer)
+  })
 
   return fela
 }

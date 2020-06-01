@@ -1,0 +1,12 @@
+  html {
+    box-sizing: border-box;
+    overflow-y: scroll;
+    font-size: 16px;
+    cursor: default;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
