@@ -1,11 +1,28 @@
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, computed, watch } from '@vue/composition-api'
+import { provideFela } from './composables/useFela'
+import { useMediaQuery } from './composables/useMediaQuery'
+import { lightTheme, darkTheme } from './styles/theme'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     HelloWorld,
+  },
+  setup() {
+    const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+    const theme = computed(() => (isDarkMode.value ? darkTheme : lightTheme))
+    const fela = provideFela({ theme: theme.value })
+
+    watch(theme, () => {
+      fela.theme = theme.value
+    })
+
+    return {
+      theme,
+      isDarkMode,
+    }
   },
 })
 </script>
@@ -17,13 +34,4 @@ export default defineComponent({
   </div>
 </template>
 
-<style>
-#app {
-  margin-top: 60px;
-  color: #2c3e50;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-</style>
+<style src="@/assets/reset.css"></style>

@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
+import { useFela } from '@/composables/useFela'
 
 interface HelloWorldProps {
   msg: string
@@ -9,6 +10,11 @@ export default defineComponent<HelloWorldProps>({
   name: 'HelloWorld',
   props: {
     msg: String,
+  },
+  setup() {
+    const test = useFela()
+
+    return { test }
   },
 })
 </script>
