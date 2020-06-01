@@ -14,7 +14,10 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import chaiColors from 'chai-colors'
 import './commands'
+
+chai.use(chaiColors)
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -1,4 +1,7 @@
 import { createStyle } from '@/composables/useFela'
+import { HeaderProps } from '@/types/ComponentOptions'
+import moonOutline from '@/assets/moon-outline.svg'
+import moonFilled from '@/assets/moon.svg'
 
 export const layout = {
   wrapper: createStyle(({ theme }) => ({
@@ -38,6 +41,53 @@ export const layout = {
       ':hover': {
         textDecoration: 'none',
       },
+    },
+  })),
+}
+
+export const appHeader = {
+  wrapper: createStyle(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '80px',
+    margin: '0 auto',
+    padding: '12.5px',
+    [`@media screen and (min-width: ${theme.breakPoint})`]: {
+      width: '90vw',
+      maxWidth: '1305px',
+    },
+  })),
+  title: createStyle(({ theme }) => ({
+    marginTop: '2px',
+    marginLeft: '3.5px',
+    fontWeight: theme.boldFontWeight,
+    fontSize: '14px',
+    [`@media screen and (min-width: ${theme.breakPoint})`]: {
+      marginTop: 0,
+      marginLeft: '2.5px',
+      fontSize: '24px',
+    },
+  })),
+  themeButton: createStyle<HeaderProps>(({ theme, isDarkMode }) => ({
+    marginTop: '2px',
+    padding: '4px',
+    paddingLeft: 'calc(1em + 12px)',
+    color: 'inherit',
+    fontFamily: theme.baseFontFamily,
+    fontSize: '12px',
+    fontWeight: theme.baseFontWeight,
+    background: 'none',
+    backgroundImage: `url(${isDarkMode ? moonFilled : moonOutline})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '1em',
+    backgroundPosition: 0,
+    border: 'none',
+    cursor: 'pointer',
+    [`@media screen and (min-width: ${theme.breakPoint})`]: {
+      marginTop: 0,
+      marginRight: '-3px',
+      fontSize: '16px',
     },
   })),
 }

@@ -4,11 +4,13 @@ import { provideFela, useClassName } from './composables/useFela'
 import { useMediaQuery } from './composables/useMediaQuery'
 import { lightTheme, darkTheme } from './styles/theme'
 import { layout } from './styles/layout'
+import AppHeader from './components/AppHeader.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
+    AppHeader,
     HelloWorld,
   },
   setup() {
@@ -25,8 +27,11 @@ export default defineComponent({
     const footerClass = useClassName(layout.footerWrapper, {})
     const contentClass = useClassName(layout.contentWrapper, {})
 
+    const setIsDarkMode = () => (isDarkMode.value = !isDarkMode.value)
+
     return {
       isDarkMode,
+      setIsDarkMode,
       wrapperClass,
       headerClass,
       footerClass,
@@ -37,8 +42,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <div :class="wrapperClass">
-    <header :class="headerClass"></header>
+  <div id="app" :class="wrapperClass">
+    <header :class="headerClass">
+      <AppHeader :isDarkMode="isDarkMode" :buttonHandler="setIsDarkMode" />
+    </header>
     <main :class="contentClass">
       <img alt="Vue logo" src="./assets/logo.png" />
       <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />

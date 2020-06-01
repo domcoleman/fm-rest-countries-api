@@ -8,7 +8,10 @@ export const useMediaQuery = (query: string, defaultValue = true) => {
     (matches.value = event.matches)
 
   onMounted(() => {
-    if (!window.matchMedia) return
+    if (!window.matchMedia) {
+      console.log('match media undefined')
+      return
+    }
 
     mql = window.matchMedia(query)
     mql.addEventListener('change', onChangeHandler)
