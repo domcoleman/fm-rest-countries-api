@@ -10,14 +10,13 @@ import { Country, MappedCountry } from './types/restcountries'
 
 import AppHeader from './components/AppHeader.vue'
 import CountriesIndex from './components/CountriesIndex.vue'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     AppHeader,
     CountriesIndex,
-    HelloWorld,
+    ViewCountry: () => import('./components/ViewCountry.vue'),
   },
   setup() {
     const currentCountryCode = ref<string>()
@@ -46,10 +45,9 @@ export default defineComponent({
 
       if (!country) return undefined
 
-      const mappedCountry: Partial<MappedCountry> = { ...country }
-
-      if (country.borders.length) {
-        mappedCountry.mappedBorders = country.borders.map((alpha3Code) => {
+      return {
+        ...country,
+        borderCountries: country.borders.map((alpha3Code) => {
           const borderCountry = result.value.find(
             (borderCountry) => borderCountry.alpha3Code === alpha3Code,
           )
@@ -58,10 +56,8 @@ export default defineComponent({
             alpha3Code: borderCountry?.alpha3Code || '',
             name: borderCountry?.name || '',
           }
-        })
+        }),
       }
-
-      return mappedCountry as MappedCountry
     })
 
     return {
@@ -87,7 +83,12 @@ export default defineComponent({
       <AppHeader :isDarkMode="isDarkMode" :buttonHandler="setIsDarkMode" />
     </header>
     <main :class="contentClass">
-      <CountriesIndex :countries="countries" :setCountry="setCountry" />
+      <ViewCountry
+        v-if="currentCountry"
+        :country="currentCountry"
+        :setCountry="setCountry"
+      />
+      <CountriesIndex v-else :countries="countries" :setCountry="setCountry" />
     </main>
     <footer :class="footerClass">
       Challenge by

@@ -67,7 +67,7 @@ export default defineComponent<CountriesIndexProps>({
 </script>
 
 <template>
-  <div>
+  <div data-test="countriesIndex">
     <nav :class="navigationClass">
       <input
         id="searchQuery"

@@ -32,5 +32,5 @@ export interface BorderCountry {
 }
 
 export interface MappedCountry extends Country {
-  mappedBorders: BorderCountry[]
+  borderCountries: BorderCountry[]
 }

@@ -66,3 +66,5 @@ export const useKeyframes = <T>(keyFrame: FelaKeyFrame<T>, props: T) => {
  */
 export const createStyle = <T>(rule: FelaRule<T>) => rule
 export const createKeyFrames = <T>(keyFrame: FelaKeyFrame<T>) => keyFrame
+
+export { combineRules } from 'fela'

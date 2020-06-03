@@ -13,7 +13,7 @@ const baseTheme = {
   lightFontWeight: 300,
   boldFontWeight: 800,
   boxShadow: `0 0 0 4px rgba(0, 0, 0, 0.05), 0 0 0 8px rgba(0, 0, 0, 0.01)`,
-  breakPoint: `650px`,
+  breakPoint: `1280px`,
 }
 
 export const darkTheme = {

@@ -31,7 +31,7 @@ export default defineComponent<CountrySummaryProps>({
 </script>
 
 <template>
-  <li :class="wrapperClass">
+  <li :class="wrapperClass" data-test="countrySummary">
     <button data-test="flag" :class="flagClass" @click="buttonHandler">
       <img :src="country.flag" />
     </button>
