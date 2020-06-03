@@ -24,11 +24,18 @@ export const layout = {
   })),
   contentWrapper: createStyle(({ theme }) => ({
     flex: 1,
-    padding: '24px 16px',
+    width: '100%',
+    paddingTop: '24px',
+    paddingRight: '16px',
+    paddingBottom: '24px',
+    paddingLeft: '16px',
     [`@media screen and (min-width: ${theme.breakPoint})`]: {
       width: '90vw',
       maxWidth: '1280px',
-      padding: '48px 0',
+      paddingTop: '48px',
+      paddingRight: 0,
+      paddingBottom: '48px',
+      paddingLeft: 0,
     },
   })),
   footerWrapper: createStyle(() => ({

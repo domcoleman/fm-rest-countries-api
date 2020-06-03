@@ -5,7 +5,7 @@ jest.mock('@/composables/useFela')
 
 describe('AppHeader.vue', () => {
   describe('Theme Button', () => {
-    it('calls buttonHandler', async () => {
+    it('should call buttonHandler', async () => {
       const buttonHandler = jest.fn()
       const wrapper = shallowMount(AppHeader, {
         propsData: { isDarkMode: false, buttonHandler },

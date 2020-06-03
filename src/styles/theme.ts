@@ -18,6 +18,7 @@ const baseTheme = {
 
 export const darkTheme = {
   ...baseTheme,
+  isDarkMode: true,
   elementBackgroundColor: colors.darkBlue,
   baseBackgroundColor: colors.veryDarkBlue1,
   baseTextColor: colors.white,
@@ -25,6 +26,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   ...baseTheme,
+  isDarkMode: false,
   elementBackgroundColor: colors.white,
   baseBackgroundColor: colors.veryLightGray,
   baseTextColor: colors.veryDarkBlue2,
