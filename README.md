@@ -1,34 +1,22 @@
-# countries-api
+# Frontend Mentor - REST Countries API with color theme switcher
 
-## Project setup
-```
-yarn install
-```
+Coding challenge found at [Fronetend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+This project was created using [Vue.js](https://vuejs.org/).
 
-### Compiles and minifies for production
-```
-yarn build
-```
+It features experiments with the upcoming Vue.js Composition API and using CSS-in-JS
+within Vue.js, through [fela](https://github.com/robinweser/fela).
 
-### Run your unit tests
-```
-yarn test:unit
-```
+## Available Commands
 
-### Run your end-to-end tests
 ```
-yarn test:e2e
-```
+Usage: yarn [command]
+       npm run [command]
 
-### Lints and fixes files
+install     Install project dependencies.
+dev         Compile and hot-reload the app for development.
+build       Compile and minify the app for production.
+test:unit   Run unit tests. (see https://jestjs.io/docs/en/cli.html for options)
+test:e2e    Run end-to-end tests.
+lint        Lint and auto-fix files when possible.
 ```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
