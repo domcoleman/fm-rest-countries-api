@@ -9,7 +9,6 @@ export const useMediaQuery = (query: string, defaultValue = true) => {
 
   onMounted(() => {
     if (!window.matchMedia) {
-      console.log('match media undefined')
       return
     }
 
