@@ -1,6 +1,5 @@
-import { shallowMount, Wrapper } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import RegionSelect from '@/components/RegionSelect.vue'
-import { CombinedVueInstance } from 'vue/types/vue'
 
 jest.mock('@/composables/useFela')
 
@@ -36,14 +35,7 @@ describe('RegionSelect.vue', () => {
   })
 
   describe('when region list is visible', () => {
-    let wrapper: Wrapper<CombinedVueInstance<
-      RegionSelect,
-      object,
-      object,
-      object,
-      // eslint-disable-next-line
-      Record<never, any>
-    >>
+    let wrapper = factory()
     beforeEach(() => {
       wrapper = factory()
       wrapper.setData({ isOpen: true })
