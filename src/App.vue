@@ -21,7 +21,7 @@ export default defineComponent({
   setup() {
     const currentCountryCode = ref<string>()
     const { state: fetchState, result } = useFetch<Country>(API_ENDPOINT)
-    const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+    const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)', false)
     const theme = computed(() => (isDarkMode.value ? darkTheme : lightTheme))
     const fela = provideFela({ theme: theme.value })
 
