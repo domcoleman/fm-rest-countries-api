@@ -32,11 +32,21 @@ export default defineComponent<CountrySummaryProps>({
 
 <template>
   <li :class="wrapperClass" data-test="countrySummary">
-    <button data-test="flag" :class="flagClass" @click="buttonHandler">
-      <img :src="country.flag" />
+    <button
+      data-test="flag"
+      :class="flagClass"
+      :aria-label="`View ${country.name}`"
+      @click="buttonHandler"
+    >
+      <img :src="country.flag" :alt="`${country.name}'s Flag`" />
     </button>
     <div :class="contentClass">
-      <button data-test="name" :class="nameClass" @click="buttonHandler">
+      <button
+        data-test="name"
+        :class="nameClass"
+        :aria-label="`View ${country.name}`"
+        @click="buttonHandler"
+      >
         {{ country.name }}
       </button>
       <div :class="statisticClass">

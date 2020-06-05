@@ -72,6 +72,7 @@ export default defineComponent<CountriesIndexProps>({
       <input
         id="searchQuery"
         placeholder="Search for a country..."
+        aria-label="Search for a country"
         v-model="searchQuery"
         :class="searchQueryClass"
       />

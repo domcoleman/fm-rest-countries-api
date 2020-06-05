@@ -64,7 +64,9 @@ export default defineComponent<ViewCountryProps>({
     </button>
 
     <div :class="countryWrapperClass">
-      <div :class="flagClass"><img :src="country.flag" /></div>
+      <div :class="flagClass">
+        <img :src="country.flag" :alt="`${country.name}'s Flag`" />
+      </div>
       <h2 :class="countryNameClass">{{ country.name }}</h2>
       <ul :class="statisticGroupClass">
         <li :class="statisticClass">
@@ -115,6 +117,7 @@ export default defineComponent<ViewCountryProps>({
           >
             <button
               :class="borderCountryButtonClass"
+              :aria-label="`View ${borderCountry.name}`"
               @click="setCountry(borderCountry.alpha3Code)"
               data-test="borderCountry"
             >
