@@ -19,12 +19,12 @@ export default defineComponent<CountrySummaryProps>({
 
     return {
       buttonHandler,
-      wrapperClass: useClassName(countrySummary.wrapper, {}),
-      flagClass: useClassName(countrySummary.flag, {}),
-      contentClass: useClassName(countrySummary.content, {}),
-      nameClass: useClassName(countrySummary.name, {}),
-      statisticClass: useClassName(countrySummary.statistic, {}),
-      statisticTitleClass: useClassName(countrySummary.statisticTitle, {}),
+      wrapperClass: useClassName(countrySummary.wrapper),
+      flagClass: useClassName(countrySummary.flag),
+      contentClass: useClassName(countrySummary.content),
+      nameClass: useClassName(countrySummary.name),
+      statisticClass: useClassName(countrySummary.statistic),
+      statisticTitleClass: useClassName(countrySummary.statisticTitle),
     }
   },
 })

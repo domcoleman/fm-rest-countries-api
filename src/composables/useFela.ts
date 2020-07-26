@@ -6,7 +6,7 @@ import {
   reactive,
   onMounted,
 } from '@vue/composition-api'
-import { createRenderer } from 'fela'
+import { createRenderer, TRuleProps } from 'fela'
 import { rehydrate, render } from 'fela-dom'
 import {
   FelaProviderProps,
@@ -45,20 +45,33 @@ export const useFela = () => {
   return fela
 }
 
-export const useClassName = <T>(rule: FelaRule<T>, props: T) => {
+export const useClassName = <T extends TRuleProps = {}>(
+  rule: FelaRule<T>,
+  props?: T,
+) => {
   const fela = useFela()
 
-  return computed(() =>
-    fela.renderer.renderRule(rule, { ...props, theme: fela.theme }),
-  )
+  return computed(() => {
+    if (!props) props = {} as T
+
+    return fela.renderer.renderRule(rule, { ...props, theme: fela.theme })
+  })
 }
 
-export const useKeyframes = <T>(keyFrame: FelaKeyFrame<T>, props: T) => {
+export const useKeyframes = <T extends TRuleProps = {}>(
+  keyFrame: FelaKeyFrame<T>,
+  props?: T,
+) => {
   const fela = useFela()
 
-  return computed(() =>
-    fela.renderer.renderKeyframe(keyFrame, { ...props, theme: fela.theme }),
-  )
+  return computed(() => {
+    if (!props) props = {} as T
+
+    return fela.renderer.renderKeyframe(keyFrame, {
+      ...props,
+      theme: fela.theme,
+    })
+  })
 }
 
 /**

@@ -51,10 +51,10 @@ export default defineComponent<RegionSelectProps>({
       isOpen,
       toggleButtonHandler,
       regionButtonHandler,
-      wrapperClass: useClassName(regionSelect.wrapper, {}),
-      toggleButtonClass: useClassName(regionSelect.toggleButton, {}),
-      regionListClass: useClassName(regionSelect.regionList, {}),
-      regionButtonClass: useClassName(regionSelect.regionButton, {}),
+      wrapperClass: useClassName(regionSelect.wrapper),
+      toggleButtonClass: useClassName(regionSelect.toggleButton),
+      regionListClass: useClassName(regionSelect.regionList),
+      regionButtonClass: useClassName(regionSelect.regionButton),
     }
   },
 })

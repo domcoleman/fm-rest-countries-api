@@ -10,8 +10,8 @@ export default defineComponent<HeaderProps>({
     buttonHandler: Function,
   },
   setup(props) {
-    const wrapperClass = useClassName(appHeader.wrapper, {})
-    const titleClass = useClassName(appHeader.title, {})
+    const wrapperClass = useClassName(appHeader.wrapper)
+    const titleClass = useClassName(appHeader.title)
     const themeButtonClass = useClassName(appHeader.themeButton, props)
 
     return {

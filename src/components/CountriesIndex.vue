@@ -58,9 +58,9 @@ export default defineComponent<CountriesIndexProps>({
       filteredCountries,
       regions,
       // styles
-      navigationClass: useClassName(navigation.wrapper, {}),
-      searchQueryClass: useClassName(navigation.searchQuery, {}),
-      countryListClass: useClassName(navigation.countryList, {}),
+      navigationClass: useClassName(navigation.wrapper),
+      searchQueryClass: useClassName(navigation.searchQuery),
+      countryListClass: useClassName(navigation.countryList),
     }
   },
 })

@@ -29,11 +29,6 @@ export default defineComponent({
       fela.theme = theme.value
     })
 
-    const wrapperClass = useClassName(layout.wrapper, {})
-    const headerClass = useClassName(layout.headerWrapper, {})
-    const footerClass = useClassName(layout.footerWrapper, {})
-    const contentClass = useClassName(layout.contentWrapper, {})
-
     const setIsDarkMode = () => (isDarkMode.value = !isDarkMode.value)
     const setCountry = (countryCode?: string) =>
       (currentCountryCode.value = countryCode)
@@ -68,10 +63,10 @@ export default defineComponent({
       countries: result,
       isDarkMode,
       setIsDarkMode,
-      wrapperClass,
-      headerClass,
-      footerClass,
-      contentClass,
+      wrapperClass: useClassName(layout.wrapper),
+      headerClass: useClassName(layout.headerWrapper),
+      footerClass: useClassName(layout.footerWrapper),
+      contentClass: useClassName(layout.contentWrapper),
     }
   },
 })
